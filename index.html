@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QR Generator</title>
+    <meta
+        name="description"
+        content="Generate QR codes quickly and easily from text or URLs."
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+
+<body>
+
+    <main class="app">
+
+        <section class="card">
+
+            <div class="header">
+                <div class="logo">
+                    <span>⌁</span>
+                </div>
+
+                <div>
+                    <h1>QR Generator</h1>
+                    <p>Create a QR code from text or a URL.</p>
+                </div>
+            </div>
+
+            <div class="content">
+
+                <!-- Input Section -->
+                <div class="input-section">
+
+                    <label for="qrText">Text or URL</label>
+
+                    <textarea
+                        id="qrText"
+                        placeholder="Enter text or paste a URL..."
+                        maxlength="1000"
+                    ></textarea>
+
+                    <div class="character-count">
+                        <span id="charCount">0</span>/1000
+                    </div>
+
+                    <button id="generateBtn" class="generate-btn">
+                        Generate QR Code
+                    </button>
+
+                    <button id="resetBtn" class="reset-btn">
+                        Reset
+                    </button>
+
+                </div>
+
+                <!-- QR Section -->
+                <div class="qr-section">
+
+                    <div class="qr-wrapper">
+                        <div id="qrcode"></div>
+
+                        <div id="emptyState" class="empty-state">
+                            <div class="empty-icon">QR</div>
+                            <p>Your QR code will appear here</p>
+                        </div>
+                    </div>
+
+                    <div class="qr-actions">
+
+                        <button id="downloadBtn" class="download-btn" disabled>
+                            ↓ Download PNG
+                        </button>
+
+                        <button id="copyBtn" class="copy-btn" disabled>
+                            Copy Text
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="footer">
+                <span>Fast</span>
+                <span>•</span>
+                <span>Free</span>
+                <span>•</span>
+                <span>No data stored</span>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

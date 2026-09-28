@@ -1,0 +1,421 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #111111;
+    --secondary: #666666;
+    --background: #f4f4f2;
+    --card: #ffffff;
+    --border: #e5e5e5;
+    --light: #f7f7f7;
+    --danger: #dc2626;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--background);
+    color: var(--primary);
+    min-height: 100vh;
+}
+
+button,
+textarea {
+    font-family: inherit;
+}
+
+/* =========================
+   APP
+========================= */
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    width: 100%;
+    max-width: 900px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 38px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 35px;
+}
+
+.logo {
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    background: var(--primary);
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.header p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: var(--secondary);
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+}
+
+/* =========================
+   INPUT
+========================= */
+
+.input-section {
+    position: relative;
+}
+
+.input-section label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 9px;
+}
+
+textarea {
+    width: 100%;
+    height: 180px;
+    resize: none;
+
+    padding: 16px;
+
+    border: 1px solid var(--border);
+    border-radius: 15px;
+
+    background: #fafafa;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+textarea::placeholder {
+    color: #999;
+}
+
+textarea:focus {
+    border-color: #111;
+    background: white;
+}
+
+.character-count {
+    text-align: right;
+    margin-top: 7px;
+
+    color: #999;
+    font-size: 12px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.generate-btn,
+.reset-btn,
+.download-btn,
+.copy-btn {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    border-radius: 12px;
+
+    transition: all 0.2s ease;
+}
+
+.generate-btn {
+    margin-top: 20px;
+
+    padding: 14px;
+
+    background: var(--primary);
+    color: white;
+}
+
+.generate-btn:hover {
+    transform: translateY(-1px);
+    background: #292929;
+}
+
+.reset-btn {
+    margin-top: 10px;
+
+    padding: 13px;
+
+    background: #f1f1f1;
+    color: #333;
+}
+
+.reset-btn:hover {
+    background: #e7e7e7;
+}
+
+/* =========================
+   QR SECTION
+========================= */
+
+.qr-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.qr-wrapper {
+    width: 280px;
+    height: 280px;
+
+    background: #fafafa;
+    border: 1px dashed #d8d8d8;
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+/* QR Canvas */
+
+#qrcode {
+    display: none;
+    background: white;
+    padding: 14px;
+    border-radius: 10px;
+}
+
+#qrcode img,
+#qrcode canvas {
+    display: block;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty-state {
+    text-align: center;
+    color: #999;
+}
+
+.empty-icon {
+    width: 60px;
+    height: 60px;
+
+    margin: 0 auto 15px;
+
+    border: 2px solid #ccc;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    color: #aaa;
+}
+
+.empty-state p {
+    font-size: 12px;
+}
+
+/* =========================
+   QR ACTIONS
+========================= */
+
+.qr-actions {
+    width: 280px;
+
+    display: flex;
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+.download-btn,
+.copy-btn {
+    padding: 12px 10px;
+}
+
+.download-btn {
+    background: var(--primary);
+    color: white;
+}
+
+.download-btn:hover:not(:disabled) {
+    background: #292929;
+}
+
+.copy-btn {
+    background: #f1f1f1;
+    color: #333;
+}
+
+.copy-btn:hover:not(:disabled) {
+    background: #e5e5e5;
+}
+
+button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    margin-top: 30px;
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+
+    color: #999;
+    font-size: 11px;
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.error {
+    animation: shake 0.3s ease;
+    border-color: var(--danger) !important;
+}
+
+@keyframes shake {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    .app {
+        padding: 15px;
+    }
+
+    .card {
+        padding: 25px 20px;
+        border-radius: 22px;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .header {
+        margin-bottom: 28px;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .qr-wrapper {
+        width: 250px;
+        height: 250px;
+    }
+
+    .qr-actions {
+        width: 250px;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .qr-actions {
+        flex-direction: column;
+    }
+
+    .qr-wrapper {
+        width: 230px;
+        height: 230px;
+    }
+
+    .qr-actions {
+        width: 230px;
+    }
+
+}
